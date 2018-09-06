@@ -19,51 +19,57 @@ public class ConjutoLibros {
     }
     
     public boolean eleminarAutor(String autor){
-        for (int i = 0; i< coleccion.length ; i++) {
-            if(coleccion[i].getAutor().equals(autor)){
-                coleccion[i] =null;
+       int indice = 0;
+        while(coleccion[indice] != null){
+            if(coleccion[indice].getAutor().equals(autor)){
+                coleccion[indice]=null;
                 return true;
-            }
+            }indice++;
         }return false;
     }
     
     public boolean eleminarTitulo(String titulo){
-        for (int i = 0; i< coleccion.length ; i++) {
-            if(coleccion[i].getTitulo().equals(titulo)){
-                coleccion[i] =null;
+        int indice = 0;
+        while(coleccion[indice] != null){
+            if(coleccion[indice].getTitulo().equals(titulo)){
+                coleccion[indice]=null;
                 return true;
-            }
+            }indice++;
         }return false;
     }
    
     public String mostrarMenor(){
         int indice = 0;
         int resultado = coleccion[0].getCalificacion();
-        for (int i = 0; i < coleccion.length; i++) {
-           if(coleccion[i].getCalificacion() < resultado){
-               resultado= coleccion[i].getCalificacion();
-               indice = i;
-           }
-        }return ("el menor puntuados es"+ coleccion[indice].mostrar());
+        int subindice = 0;
+        while(coleccion[indice] != null){
+            if(coleccion[indice].getCalificacion() < resultado ){
+                resultado = coleccion[indice].getCalificacion();
+                subindice = indice;
+            }indice++;
+        }return("el mejor puntuado es  "+coleccion[subindice].mostrar());
     }   
 
-    
     public String mostrarMayor(){
         int indice = 0;
         int resultado = coleccion[0].getCalificacion();
-        for (int i = 0; i < coleccion.length; i++) {
-           if(coleccion[i].getCalificacion() > resultado){
-               resultado = coleccion[i].getCalificacion();
-               indice = i;
-           }
-        }return ("el mejor puntuados es"+ coleccion[indice].mostrar());
+        int subindice = 0;
+        while(coleccion[indice] != null){
+            if(coleccion[indice].getCalificacion() > resultado ){
+                resultado = coleccion[indice].getCalificacion();
+                subindice = indice;
+            }indice++;
+        }return("el mejor puntuado es  "+coleccion[subindice].mostrar());
     }   
     
     
    public void mostrarCole(){
-       for (int i = 0; i < coleccion.length; i++) {
-           System.out.println(coleccion[i].mostrar());
-           System.out.println("");
-       } 
+        int indice = 0;  
+        while(coleccion[indice] != null){
+            System.out.println(coleccion[indice].mostrar());
+            System.out.println("");
+            indice++;
+        }   
+       }
 }
-}
+
