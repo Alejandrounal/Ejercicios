@@ -1,6 +1,8 @@
 
 package BibliotecaBasaCasos;
 
+import ExtensionLibros.Cliente;
+import ExtensionLibros.Comentario;
 import java.util.*;
 
 public class Libro {
@@ -14,6 +16,8 @@ public class Libro {
     
     private ArrayList<Transaccion> transacciones = new ArrayList<Transaccion>();
     
+    private ArrayList<Comentario> comentarios;
+    
     public Libro(String isbn, String titulo, String autor, double pCompra, double pVenta, int cantidadAct, String rutaImagen) {
         this.isbn = isbn;
         this.titulo = titulo;
@@ -22,6 +26,11 @@ public class Libro {
         this.pVenta = pVenta;
         this.cantidadAct = cantidadAct;
         this.rutaImagen = rutaImagen;
+        
+        this.comentarios = new ArrayList<Comentario>();
+    }
+
+    public Libro() {
     }
 
     public String getIsbn() {
@@ -68,6 +77,25 @@ public class Libro {
         Transaccion tran = new Transaccion("Abastecimiento",fecha,cantidad);
         transacciones.add(tran);
     }
+
+    public ArrayList<Transaccion> getTransacciones() {
+        return transacciones;
+    }
+
+    public ArrayList<Comentario> getComentarios() {
+        return comentarios;
+    }
     
     
+    public void agregarComentario(String conte, int calificacion, Cliente cliente){
+        Comentario coment = new Comentario(conte,calificacion,cliente);
+        comentarios.add(coment);
+    } 
+    
+    public void darComentarios(){
+        for (int i = 0; i < comentarios.size(); i++) {
+            System.out.println("Comentario: " + comentarios.get(i).getContenido()+ "       Calificación: " + comentarios.get(i).getCalificacion()+"  Cliente:    "+comentarios.get(i).getCliente().getNombres());
+        }
+        
+    }
 }

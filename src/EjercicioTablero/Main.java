@@ -37,6 +37,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println(objeto.getX() + "  "+ objeto.getY());
+                    JOptionPane.showMessageDialog(null,objeto.getX() + "  "+ objeto.getY());
                      break;
                 case 3:
                     System.exit(0);
